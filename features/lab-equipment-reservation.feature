@@ -59,7 +59,7 @@ Scenario: Cancel a pending reservation
 
   Scenario: Block reservation in a room under maintenance
     Given the student with login "Vitoria" has no reservation from "10/04/2026 14:00" to "10/04/2026 16:00"
-    And the room "Lab B" is under active maintenance
+    And the room "Lab B" is currently under active maintenance
     When the system receives a reservation request with room "Lab B", number of computers "2", start time "10/04/2026 14:00", and end time "10/04/2026 16:00" for the student with login "Vitoria"
     Then the system does not register any reservation
     And the system returns the error "The room 'Lab B' is under maintenance and cannot be reserved"
