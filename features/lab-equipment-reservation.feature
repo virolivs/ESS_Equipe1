@@ -64,3 +64,8 @@ Scenario: Cancel a pending reservation
     Then the system does not register any reservation
     And the system returns the error "The room 'Lab B' is under maintenance and cannot be reserved"
     And no reservation is associated with the student with login "Vitoria"
+
+  Scenario: Equipment pickup confirmation
+    Given the student has a pending reservation for room "Lab A"
+    When the student confirms the equipment pickup
+    Then the reservation status becomes "In Use"
